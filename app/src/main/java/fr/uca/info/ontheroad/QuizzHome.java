@@ -15,6 +15,6 @@ public class QuizzHome extends AppCompatActivity {
         Intent intent = getIntent();
         Section section = intent.getParcelableExtra("Section");
         TextView sectionNameText = (TextView) findViewById(R.id.sectionName);
-        sectionNameText.setText(section.getNom());
+        sectionNameText.setText("" + section.getNom() + " ; " + section.getDescription() + " ; " + section.getIcon() + " ; " + section.getColor());
     }
 }
