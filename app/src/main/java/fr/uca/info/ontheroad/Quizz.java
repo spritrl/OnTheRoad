@@ -1,4 +1,4 @@
-package fr.uca.info.ontheroad;
+/* package fr.uca.info.ontheroad;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -123,3 +123,4 @@ public class Quizz extends AppCompatActivity
         }
     }
 }
+*/
