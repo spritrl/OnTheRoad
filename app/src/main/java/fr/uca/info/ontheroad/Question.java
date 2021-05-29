@@ -1,8 +1,11 @@
 package fr.uca.info.ontheroad;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class Question {
+public class Question implements Parcelable {
     private int id;
     private String questionText;
     private ArrayList<Reponse> answersList;
@@ -14,6 +17,25 @@ public class Question {
         this.goodAnswer = goodAnswer_;
         this.answersList = new ArrayList<>();
     }
+
+    protected Question(Parcel in) {
+        id = in.readInt();
+        questionText = in.readString();
+        answersList = in.createTypedArrayList(Reponse.CREATOR);
+        goodAnswer = in.readInt();
+    }
+
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -39,5 +61,18 @@ public class Question {
                 ", answersList=" + answersList +
                 ", goodAnswer=" + goodAnswer +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(questionText);
+        dest.writeTypedList(answersList);
+        dest.writeInt(goodAnswer);
     }
 }

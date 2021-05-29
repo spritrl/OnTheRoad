@@ -17,6 +17,18 @@
             android:text=""
             android:textSize="15dp"
             tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/sectionDescription"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/btnStartQuizz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMMENCER" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

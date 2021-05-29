@@ -45,12 +45,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, int position,
                                     long id) {
+                System.out.println("SECTION CLICKED ::: " + listSection.getSection(position));
                 Intent myIntent = new Intent(MainActivity.this,
                         QuizzHome.class);
                 myIntent.putExtra("Section", listSection.getSection(position));
+                System.out.println("INTENT ::: " + myIntent.getExtras());
                 MainActivity.this.startActivity(myIntent);
             }
-
         });
     }
 
@@ -94,6 +95,5 @@ public class MainActivity extends AppCompatActivity {
         }catch (IOException e){
             e.printStackTrace();
         }
-
     }
 }

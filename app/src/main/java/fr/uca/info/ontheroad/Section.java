@@ -10,12 +10,12 @@ public class Section implements Parcelable {
 
     private String nom;
     private int id;
-    private Color color;
+    private String color;
     private String icon;
     private String description;
     private ArrayList<Question> questionList;
 
-    public Section(String nom, int id, Color color, String icon, String description) {
+    public Section(String nom, int id, String color, String icon, String description) {
         this.nom = nom;
         this.id = id;
         this.color = color;
@@ -28,11 +28,19 @@ public class Section implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(nom);
         dest.writeInt(id);
+        dest.writeString(color);
+        dest.writeString(icon);
+        dest.writeString(description);
+        dest.writeTypedList(questionList);
     }
 
     protected Section(Parcel in) {
         nom = in.readString();
-        id = in.readInt();;
+        id = in.readInt();
+        color = in.readString();
+        icon = in.readString();
+        description = in.readString();
+        questionList = in.createTypedArrayList(Question.CREATOR);
     }
 
     public Section() {}
@@ -71,27 +79,15 @@ public class Section implements Parcelable {
     }
 
     @Override
-    public String toString() {
-        return "Section{" +
-                "nom='" + nom + '\'' +
-                ", id=" + id +
-                ", color=" + color +
-                ", icon='" + icon + '\'' +
-                ", description='" + description + '\'' +
-                ", questionList=" + questionList +
-                '}';
-    }
-
-    @Override
     public int describeContents() {
         return hashCode();
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
@@ -109,6 +105,18 @@ public class Section implements Parcelable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Section{" +
+                "nom='" + nom + '\'' +
+                ", id=" + id +
+                ", color=" + color +
+                ", icon='" + icon + '\'' +
+                ", description='" + description + '\'' +
+                ", questionList=" + questionList +
+                '}';
     }
 }
 
