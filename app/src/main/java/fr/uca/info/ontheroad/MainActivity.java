@@ -9,7 +9,6 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 
