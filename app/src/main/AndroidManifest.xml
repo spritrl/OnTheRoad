@@ -16,11 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuizzHome">
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-        </activity>
         <activity android:name=".QuizzResults">
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
+
+        </activity>
+        <activity android:name=".QuizzHome">
+
         </activity>
         <activity android:name=".Quizz">
             <!-- The meta-data tag is required if you support API level 15 and lower -->

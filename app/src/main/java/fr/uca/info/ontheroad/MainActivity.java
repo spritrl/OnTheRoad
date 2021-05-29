@@ -9,7 +9,6 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                                     long id) {
                 System.out.println("SECTION CLICKED ::: " + listSection.getSection(position));
                 Intent myIntent = new Intent(MainActivity.this,
-                        QuizzHome.class);
+                        QuizzResults.class);
                 myIntent.putExtra("Section", listSection.getSection(position));
                 System.out.println("INTENT ::: " + myIntent.getExtras());
                 MainActivity.this.startActivity(myIntent);
