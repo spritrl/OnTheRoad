@@ -5,6 +5,7 @@
       {
         "id_question": "1",
         "question_text": "question 1",
+        "img_id": "0",
         "reponses_text": [
           {
             "id": "1",
@@ -24,6 +25,7 @@
       {
         "id_question": "2",
         "question_text": "question 2",
+        "img_id": "0",
         "reponses_text": [
           {
             "id": "1",
@@ -48,6 +50,7 @@
       {
         "id_question": "1",
         "question_text": "question 1",
+        "img_id": "0",
         "reponses_text": [
           {
             "id": "1",
@@ -72,6 +75,7 @@
       {
         "id_question": "1",
         "question_text": "question 1",
+        "img_id": "0",
         "reponses_text": [
           {
             "id": "1",
@@ -96,6 +100,7 @@
       {
         "id_question": "1",
         "question_text": "question 1",
+        "img_id": "0",
         "reponses_text": [
           {
             "id": "1",
@@ -120,6 +125,7 @@
       {
         "id_question": "1",
         "question_text": "question 1",
+        "img_id": "0",
         "reponses_text": [
           {
             "id": "1",

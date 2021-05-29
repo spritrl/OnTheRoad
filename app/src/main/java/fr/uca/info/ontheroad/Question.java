@@ -8,14 +8,16 @@ import java.util.ArrayList;
 public class Question implements Parcelable {
     private int id;
     private String questionText;
+    private int imgId;
     private ArrayList<Reponse> answersList;
     private int goodAnswer;
 
-    public Question(int id_, String questionText_, int goodAnswer_){
+    public Question(int id_, String questionText_, int goodAnswer_, int imgId_){
         this.id = id_;
         this.questionText = questionText_;
         this.goodAnswer = goodAnswer_;
         this.answersList = new ArrayList<>();
+        this.imgId = imgId_;
     }
 
     protected Question(Parcel in) {
@@ -23,6 +25,7 @@ public class Question implements Parcelable {
         questionText = in.readString();
         answersList = in.createTypedArrayList(Reponse.CREATOR);
         goodAnswer = in.readInt();
+        imgId = in.readInt();
     }
 
     public static final Creator<Question> CREATOR = new Creator<Question>() {
@@ -58,6 +61,7 @@ public class Question implements Parcelable {
         return "Question{" +
                 "id=" + id +
                 ", questionText='" + questionText + '\'' +
+                ", imgId=" + imgId +
                 ", answersList=" + answersList +
                 ", goodAnswer=" + goodAnswer +
                 '}';
@@ -74,5 +78,14 @@ public class Question implements Parcelable {
         dest.writeString(questionText);
         dest.writeTypedList(answersList);
         dest.writeInt(goodAnswer);
+        dest.writeInt(imgId);
+    }
+
+    public int getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
     }
 }
