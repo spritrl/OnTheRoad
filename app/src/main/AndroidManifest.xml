@@ -22,6 +22,12 @@
         <activity android:name=".QuizzHome">
 
         </activity>
+        <activity android:name=".Quizz">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+        </activity>
+        <activity android:name=".result">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+        </activity>
     </application>
 
 </manifest>

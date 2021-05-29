@@ -1,7 +1,8 @@
-/* package fr.uca.info.ontheroad;
+package fr.uca.info.ontheroad;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -28,25 +29,42 @@ public class Quizz extends AppCompatActivity
 
     private HashMap<String, Boolean> answerList = new HashMap<String, Boolean>();
 
-    private Question[] questionBank = new Question[] {
-            new Question("Il fait beau?", "Oui",  "Oui", "Non", "Peut etre", R.drawable.f1),
-            new Question("Il pleut demain?", "Oui",  "Oui", "Non", "Peut etre", R.drawable.f1),
-            new Question("Steve est bg?", "Oui",  "Oui", "Non", "Peut etre", R.drawable.f1),
-
-    };
+    ArrayList<QuizzQuestion> questionBank = new ArrayList<QuizzQuestion>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quizz);
+        Intent intent = getIntent();
+        ArrayList<Question> jsonFromHomeQuizz = (ArrayList<Question>)intent.getSerializableExtra("Questions");
+
+        for(int i = 0; i < jsonFromHomeQuizz.size(); i++) {
+            jsonFromHomeQuizz.get(i).getQuestionText();
+            String stringGoodAnswer = null;
+            for(int y = 0; y < jsonFromHomeQuizz.get(i).getAnswersList().size(); y++) {
+                if (jsonFromHomeQuizz.get(i).getAnswersList().get(y).getId() == jsonFromHomeQuizz.get(i).getGoodAnswer()) {
+                    stringGoodAnswer = jsonFromHomeQuizz.get(i).getAnswersList().get(y).getAnswerText();
+                }
+            }
+            QuizzQuestion newQuestion =
+                    new QuizzQuestion(
+                            jsonFromHomeQuizz.get(i).getQuestionText(),
+                            stringGoodAnswer,
+                            jsonFromHomeQuizz.get(i).getAnswersList().get(0).getAnswerText(),
+                            jsonFromHomeQuizz.get(i).getAnswersList().get(1).getAnswerText(),
+                            jsonFromHomeQuizz.get(i).getAnswersList().get(2).getAnswerText(),
+                            jsonFromHomeQuizz.get(i).getImage());
+            questionBank.add(newQuestion);
+
+        }
         answer1 = findViewById(R.id.answer1);
         answer2 = findViewById(R.id.answer2);
         answer3 = findViewById(R.id.answer3);
 
-        answer1.setText(questionBank[currentQuestionIndex].getAnswer(1));
-        answer2.setText(questionBank[currentQuestionIndex].getAnswer(2));
-        answer3.setText(questionBank[currentQuestionIndex].getAnswer(3));
+        answer1.setText(questionBank.get(currentQuestionIndex).getAnswer(1));
+        answer2.setText(questionBank.get(currentQuestionIndex).getAnswer(2));
+        answer3.setText(questionBank.get(currentQuestionIndex).getAnswer(3));
 
         answer1.setOnClickListener(this);
         answer2.setOnClickListener(this);
@@ -55,9 +73,13 @@ public class Quizz extends AppCompatActivity
         questionText
                 = findViewById(R.id.questionText);
 
-        questionText.setText(questionBank[0].getQuestion());
+        questionText.setText(questionBank.get(0).getQuestion());
 
         Image = findViewById(R.id.questionImage);
+        Resources resources = this.getResources();
+        final int resourcesImage = resources.getIdentifier(questionBank.get(currentQuestionIndex).getImage(), "drawable",
+                this.getPackageName());
+        Image.setImageResource(resourcesImage);
     }
 
     @SuppressLint("SetTextI18n")
@@ -67,17 +89,17 @@ public class Quizz extends AppCompatActivity
     {
         switch (v.getId()) {
             case R.id.answer1:
-                checkAnswer(questionBank[currentQuestionIndex].getAnswer(1));
+                checkAnswer(questionBank.get(currentQuestionIndex).getAnswer(1));
                 lastQuestion();
                 break;
 
             case R.id.answer2:
-                checkAnswer(questionBank[currentQuestionIndex].getAnswer(2));
+                checkAnswer(questionBank.get(currentQuestionIndex).getAnswer(2));
                 lastQuestion();
                 break;
 
             case R.id.answer3:
-                checkAnswer(questionBank[currentQuestionIndex].getAnswer(3));
+                checkAnswer(questionBank.get(currentQuestionIndex).getAnswer(3));
                 lastQuestion();
                 break;
         }
@@ -87,32 +109,35 @@ public class Quizz extends AppCompatActivity
     private void updateQuestion()
     {
         questionText.setText(
-                questionBank[currentQuestionIndex].getQuestion());
-        Image.setImageResource(questionBank[currentQuestionIndex].getImage());
+                questionBank.get(currentQuestionIndex).getQuestion());
+        Resources resources = this.getResources();
+        final int resourcesImage = resources.getIdentifier(questionBank.get(currentQuestionIndex).getImage(), "drawable",
+                this.getPackageName());
+        Image.setImageResource(resourcesImage);
     }
 
     private void checkAnswer(String answer)
     {
         String correctAnswer
-                = questionBank[currentQuestionIndex]
+                = questionBank.get(currentQuestionIndex)
                 .getCorrectAnswer();
         System.out.println("Main checkAnswer start = "+answerList);
         if (answer.equals(correctAnswer)) {
             correct++;
-            answerList.put(questionBank[currentQuestionIndex].getQuestion(), true);
+            answerList.put(questionBank.get(currentQuestionIndex).getQuestion(), true);
             System.out.println(correct);
         } else {
-            answerList.put(questionBank[currentQuestionIndex].getQuestion(), false);
+            answerList.put(questionBank.get(currentQuestionIndex).getQuestion(), false);
         }
         System.out.println("Main checkAnswer end = "+answerList);
     }
 
     private void lastQuestion()
     {
-        if (currentQuestionIndex < questionBank.length) {
+        if (currentQuestionIndex < questionBank.size()) {
             currentQuestionIndex
                     = currentQuestionIndex + 1;
-            if (currentQuestionIndex == questionBank.length) {
+            if (currentQuestionIndex == questionBank.size()) {
                 Intent myIntent = new Intent(this, result.class);
                 myIntent.putExtra("map", answerList);
                 startActivity(myIntent);
@@ -123,4 +148,3 @@ public class Quizz extends AppCompatActivity
         }
     }
 }
-*/
