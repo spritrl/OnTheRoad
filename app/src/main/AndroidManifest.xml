@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".QuizzResults">
-
         </activity>
         <activity android:name=".QuizzHome">
-
+        </activity>
+        <activity android:name=".UserProfil">
         </activity>
     </application>
 
