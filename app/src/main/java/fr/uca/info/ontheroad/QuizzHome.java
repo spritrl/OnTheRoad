@@ -35,7 +35,7 @@ public class QuizzHome extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.btnStartQuizz);
         button.setOnClickListener(v -> {
             Intent myIntent = new Intent(QuizzHome.this,
-                    MainActivity.class);
+                    Quizz.class);
             myIntent.putExtra("Questions", questionArrayList);
             System.out.println("INTENT ::: " + myIntent.getExtras());
             QuizzHome.this.startActivity(myIntent);

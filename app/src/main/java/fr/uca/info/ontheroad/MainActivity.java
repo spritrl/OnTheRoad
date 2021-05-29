@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                             jsonArray.getJSONObject(sections).getJSONArray("QA_section").getJSONObject(questions).getInt("id_question"),
                             jsonArray.getJSONObject(sections).getJSONArray("QA_section").getJSONObject(questions).getString("question_text"),
                             jsonArray.getJSONObject(sections).getJSONArray("QA_section").getJSONObject(questions).getInt("correct_answer_id"),
-                            jsonArray.getJSONObject(sections).getJSONArray("QA_section").getJSONObject(questions).getInt("img_id")
+                            jsonArray.getJSONObject(sections).getJSONArray("QA_section").getJSONObject(questions).getString("img_id")
                     );
                     for(int reponses = 0; reponses < jsonArray.getJSONObject(sections).getJSONArray("QA_section").getJSONObject(questions).getJSONArray("reponses_text").length(); reponses++){
                         Reponse reponse = new Reponse(
