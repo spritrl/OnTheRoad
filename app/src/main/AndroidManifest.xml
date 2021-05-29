@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnTheRoad">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,10 +17,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".QuizzResults">
+
         </activity>
         <activity android:name=".QuizzHome">
+
         </activity>
-        <activity android:name=".UserProfil">
+        <activity android:name=".Quizz">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+        </activity>
+        <activity android:name=".result">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
         </activity>
     </application>
 
