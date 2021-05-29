@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                                     long id) {
                 System.out.println("SECTION CLICKED ::: " + listSection.getSection(position));
                 Intent myIntent = new Intent(MainActivity.this,
-                        QuizzResults.class);
+                        QuizzHome.class);
                 myIntent.putExtra("Section", listSection.getSection(position));
                 System.out.println("INTENT ::: " + myIntent.getExtras());
                 MainActivity.this.startActivity(myIntent);

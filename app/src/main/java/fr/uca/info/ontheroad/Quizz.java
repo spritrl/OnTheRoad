@@ -138,7 +138,7 @@ public class Quizz extends AppCompatActivity
             currentQuestionIndex
                     = currentQuestionIndex + 1;
             if (currentQuestionIndex == questionBank.size()) {
-                Intent myIntent = new Intent(this, result.class);
+                Intent myIntent = new Intent(this, QuizzResults.class);
                 myIntent.putExtra("map", answerList);
                 startActivity(myIntent);
             }

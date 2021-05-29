@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,10 +23,13 @@ public class QuizzResults extends AppCompatActivity {
         setContentView(R.layout.quizz_results);
 
         Intent intent = getIntent();
-        HashMap<String, Boolean> reponsesList = (HashMap<String, Boolean>)intent.getSerializableExtra("Map");
+        HashMap<String, Boolean> reponsesList = (HashMap<String, Boolean>)intent.getSerializableExtra("map");
+
+        System.out.println(reponsesList);
 
         ListView answersList = (ListView) findViewById(R.id.resultsListView);
         TextView resultsText = (TextView) findViewById(R.id.resultsText);
+        Button btnBackHome = (Button) findViewById(R.id.button);
 
         String[] results = new String[reponsesList.size()];
 
@@ -42,5 +46,10 @@ public class QuizzResults extends AppCompatActivity {
         answersList.setAdapter(adapter);
 
         resultsText.setText("" + notation + "/" + results.length);
+
+        btnBackHome.setOnClickListener(v -> {
+            Intent activity2Intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(activity2Intent);
+        });
     }
 }
