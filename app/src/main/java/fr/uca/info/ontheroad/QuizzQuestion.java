@@ -17,8 +17,9 @@ public class QuizzQuestion {
                          String img){
         this.question = question;
         this.answer1 = answer1;
-        this.answer2 = answer1;
-        this.answer3 = answer1;
+        this.answer2 = answer2;
+        this.answer3 = answer3;
+        this.goodAnswer = goodAnswer;
         this.img = img;
     }
 
