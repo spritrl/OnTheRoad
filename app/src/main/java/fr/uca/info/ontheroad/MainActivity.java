@@ -1,11 +1,18 @@
 package fr.uca.info.ontheroad;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,9 +34,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.home);
         listSection.construireListe();
         addToList();
-        ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<String>(this,
-                        R.layout.home, R.id.sectionText, SectionName);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.home_list_layout, R.id.sectionText, SectionName) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                TextView sectionName = (TextView) view.findViewById(R.id.sectionText);
+                ImageView sectionIcon = (ImageView) view.findViewById(R.id.sectionIcon);
+
+                Resources resources = getApplication().getResources();
+                final int resourcesImage = resources.getIdentifier(listSection.getSection(position).getIcon(), "drawable",
+                        getApplication().getPackageName());
+
+                sectionIcon.setImageResource(resourcesImage);
+
+                GradientDrawable border = new GradientDrawable();
+                border.setColor(Color.parseColor(listSection.getSection(position).getColor()));
+                border.setStroke(2, Color.parseColor(listSection.getSection(position).getColor()));
+                border.setCornerRadius(20);
+
+                LinearLayout mainLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
+                mainLayout.setBackground(border);
+
+                sectionName.setText("" + listSection.getSection(position).getNom());
+
+                return view;
+            }
+        };
         ListView sectionList = (ListView)findViewById(R.id.listView);
         sectionList.setAdapter(arrayAdapter);
 

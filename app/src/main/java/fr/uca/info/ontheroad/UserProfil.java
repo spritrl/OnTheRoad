@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -59,7 +56,7 @@ public class UserProfil extends AppCompatActivity {
                 View view =super.getView(position, convertView, parent);
 
                 TextView sectionName =(TextView) view.findViewById(R.id.testText);
-                TextView sectionResult =(TextView) view.findViewById(R.id.resultText);
+                TextView sectionResult =(TextView) view.findViewById(R.id.sectionText);
                 ImageView sectionIcon = (ImageView) view.findViewById(R.id.sectionIcon);
 
                 Resources resources = getApplication().getResources();
