@@ -12,6 +12,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONObject;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +30,9 @@ public class QuizzResults extends AppCompatActivity {
 
         Intent intent = getIntent();
         HashMap<String, Boolean> reponsesList = (HashMap<String, Boolean>)intent.getSerializableExtra("map");
+        ArrayList<String> sectionData = (ArrayList<String>)intent.getSerializableExtra("SectionData");
+
+        System.out.println(sectionData);
 
         System.out.println(reponsesList);
 
@@ -48,6 +57,14 @@ public class QuizzResults extends AppCompatActivity {
         resultsText.setText("" + notation + "/" + results.length);
 
         btnBackHome.setOnClickListener(v -> {
+            /*
+            try{
+                JSONObject jsonObject = (JSONObject) new FileReader("/history.json");
+            }catch (IOException e){
+
+            }*/
+
+
             Intent activity2Intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(activity2Intent);
         });

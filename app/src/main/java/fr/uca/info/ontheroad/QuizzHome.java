@@ -32,11 +32,17 @@ public class QuizzHome extends AppCompatActivity {
         sectionNameText.setText("" + section.getNom());
         sectionDescriptionText.setText("" + section.getDescription());
 
+        ArrayList<String> sectionData = new ArrayList<String>();
+        sectionData.add(section.getNom());
+        sectionData.add(section.getIcon());
+        sectionData.add(section.getColor());
+
         Button button = (Button) findViewById(R.id.btnStartQuizz);
         button.setOnClickListener(v -> {
             Intent myIntent = new Intent(QuizzHome.this,
                     Quizz.class);
             myIntent.putExtra("Questions", questionArrayList);
+            myIntent.putExtra("SectionData", sectionData);
             System.out.println("INTENT ::: " + myIntent.getExtras());
             QuizzHome.this.startActivity(myIntent);
         });

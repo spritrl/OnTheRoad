@@ -108,6 +108,9 @@ public class Quizz extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateQuestion()
     {
+        answer1.setText(questionBank.get(currentQuestionIndex).getAnswer(1));
+        answer2.setText(questionBank.get(currentQuestionIndex).getAnswer(2));
+        answer3.setText(questionBank.get(currentQuestionIndex).getAnswer(3));
         questionText.setText(
                 questionBank.get(currentQuestionIndex).getQuestion());
         Resources resources = this.getResources();
@@ -138,8 +141,11 @@ public class Quizz extends AppCompatActivity
             currentQuestionIndex
                     = currentQuestionIndex + 1;
             if (currentQuestionIndex == questionBank.size()) {
+                Intent intent = getIntent();
+                ArrayList<String> sectionData = (ArrayList<String>)intent.getSerializableExtra("SectionData");
                 Intent myIntent = new Intent(this, QuizzResults.class);
                 myIntent.putExtra("map", answerList);
+                myIntent.putExtra("SectionData", sectionData);
                 startActivity(myIntent);
             }
             else {
