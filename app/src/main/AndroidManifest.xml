@@ -28,6 +28,15 @@
         <activity android:name=".result">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
         </activity>
+        <activity android:name=".Login">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+        </activity>
+        <activity android:name=".Register">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+        </activity>
+        <activity android:name=".MainActivity">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+        </activity>
     </application>
 
 </manifest>
