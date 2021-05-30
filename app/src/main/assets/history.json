@@ -1,0 +1,40 @@
+{
+  "history": [
+    {
+      "section_name": "Autres usagers",
+      "section_result": "18/20",
+      "section_icon": "group",
+      "section_color": "#eb5c76"
+    },
+    {
+      "section_name": "La route",
+      "section_result": "12/20",
+      "section_icon": "worktools",
+      "section_color": "#ff7648"
+    },
+    {
+      "section_name": "Les panneaux",
+      "section_result": "08/20",
+      "section_icon": "warning",
+      "section_color": "#8f98ff"
+    },
+    {
+      "section_name": "Mécanique & équipement",
+      "section_result": "13/20",
+      "section_icon": "support",
+      "section_color": "#4dc591"
+    },
+    {
+      "section_name": "Les panneaux",
+      "section_result": "08/20",
+      "section_icon": "warning",
+      "section_color": "#8f98ff"
+    },
+    {
+      "section_name": "Autres usagers",
+      "section_result": "18/20",
+      "section_icon": "group",
+      "section_color": "#eb5c76"
+    }
+  ]
+}
