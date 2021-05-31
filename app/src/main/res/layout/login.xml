@@ -19,7 +19,6 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CONNEXION"
         android:textColor="@android:color/black"
         android:textSize="40sp" />
 
@@ -40,16 +39,15 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Identifiant" />
+            android:hint="Identifiant"/>
 
         <EditText
             android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Password"
-            android:inputType="textPersonName"
-            android:text="Mot de Passe" />
+            android:hint="Mot de Passe"
+            android:inputType="textPersonName" />
 
     </LinearLayout>
 
