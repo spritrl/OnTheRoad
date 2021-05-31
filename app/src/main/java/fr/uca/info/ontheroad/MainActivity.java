@@ -70,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        ImageView homeImgBtn = (ImageView) findViewById(R.id.homeBtn);
+        homeImgBtn.setOnClickListener(v -> {
+            Intent intentToProfilActivity = new Intent(MainActivity.this, UserProfil.class);
+            MainActivity.this.startActivity(intentToProfilActivity);
+        });
+
         sectionList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
