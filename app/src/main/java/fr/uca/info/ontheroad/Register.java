@@ -32,11 +32,15 @@ public class Register extends AppCompatActivity {
         }
         register = (Button) findViewById(R.id.register);
 
+        register.setVisibility(View.VISIBLE);
+        register.setAlpha(0f);
+        register.animate().alpha(1f).setDuration(1500);
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 APIMethode api;
-                String url = "http://192.168.1.42:8080/api/register/username=\""
+                String url = "http://185.98.138.221:8080/api/register/username=\""
                         + username.getText() + "\"&mail=\""
                         + mail.getText() + "\"&password=\""
                         + password.getText() + "\"";

@@ -3,11 +3,14 @@ package fr.uca.info.ontheroad;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Welcome extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class Welcome extends AppCompatActivity implements Animation.AnimationListener {
 
     private Button login;
     private Button register;
@@ -20,6 +23,19 @@ public class Welcome extends AppCompatActivity {
         login = (Button) findViewById(R.id.login);
         register = (Button) findViewById(R.id.register);
         quit = (Button) findViewById(R.id.quit);
+
+
+        ArrayList<Button> buttonList = new ArrayList<Button>();
+
+        buttonList.add(login);
+        buttonList.add(register);
+        buttonList.add(quit);
+
+        for(int i = 0; i < buttonList.size(); i++) {
+            buttonList.get(i).setVisibility(View.VISIBLE);
+            buttonList.get(i).setAlpha(0f);
+            buttonList.get(i).animate().alpha(1f).setDuration(1500);
+        }
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,4 +62,18 @@ public class Welcome extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onAnimationStart(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
 }

@@ -37,7 +37,7 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content">
 
@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="CONNEXION"
+            android:visibility="invisible"
             android:textSize="20sp" />
 
         <Button
@@ -57,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="INSCRIPTION"
+            android:visibility="invisible"
             android:textSize="20sp" />
 
         <Button
@@ -65,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="QUITTER"
+            android:visibility="invisible"
             android:textSize="20sp" />
     </LinearLayout>
     <Space
