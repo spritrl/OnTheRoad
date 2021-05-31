@@ -19,7 +19,6 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
         EditText username = (EditText) findViewById(R.id.username);
         EditText password = (EditText) findViewById(R.id.password);
-        username.getText();
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
         if (SDK_INT > 8)
         {
@@ -52,4 +51,5 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
 }
