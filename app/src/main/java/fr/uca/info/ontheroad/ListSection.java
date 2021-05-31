@@ -31,11 +31,11 @@ public class ListSection {
     }
 
     public void construireListe(){
-        list.add(new Section("Les Panneaux", 1, "#8F98FF", "panneau_icon", "Les questions portent sur le thème de ..."));
-        list.add(new Section("La Route", 2, "#FF7648", "route_icon", "Les questions portent sur le thème de ..."));
-        list.add(new Section("Mécanique & Équipement", 3, "#4DC591", "mecanique_icon", "Les questions portent sur le thème de ..."));
-        list.add(new Section("Premiers Secours", 4, "#65A4DA", "secours_icon", "Les questions portent sur le thème de ..."));
-        list.add(new Section("Autres Usagers", 5, "#EB5D76", "usagers_icon", "Les questions portent sur le thème de ..."));
+        list.add(new Section("Les Panneaux", 1, "#8F98FF", "warning", "Les questions portent sur le thème de ..."));
+        list.add(new Section("La Route", 2, "#FF7648", "worktools", "Les questions portent sur le thème de ..."));
+        list.add(new Section("Mécanique & Équipement", 3, "#4DC591", "support", "Les questions portent sur le thème de ..."));
+        list.add(new Section("Premiers Secours", 4, "#65A4DA", "heartbeat", "Les questions portent sur le thème de ..."));
+        list.add(new Section("Autres Usagers", 5, "#EB5D76", "group", "Les questions portent sur le thème de ..."));
     }
 }
 
