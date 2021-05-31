@@ -1,4 +1,4 @@
-package Application;
+package OnTheRoadApi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,9 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan({"Controller"})
 @EntityScan("Entity")
 @EnableJpaRepositories("Repository")
-public class Application {
+public class OnTheRoadApiSpringApplication{
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(OnTheRoadApiSpringApplication.class, args);
     }
 }
