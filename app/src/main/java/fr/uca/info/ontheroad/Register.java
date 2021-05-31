@@ -36,6 +36,19 @@ public class Register extends AppCompatActivity {
         register.setAlpha(0f);
         register.animate().alpha(1f).setDuration(1500);
 
+        Button btnBack = (Button) findViewById(R.id.back);
+        btnBack.setVisibility(View.VISIBLE);
+        btnBack.setAlpha(0f);
+        btnBack.animate().alpha(1f).setDuration(1500);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, Welcome.class);
+                startActivity(intent);
+            }
+        });
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
