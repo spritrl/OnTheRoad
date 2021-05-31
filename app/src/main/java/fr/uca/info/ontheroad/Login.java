@@ -30,11 +30,16 @@ public class Login extends AppCompatActivity {
 
         login = (Button) findViewById(R.id.login);
 
+        login.setVisibility(View.VISIBLE);
+        login.setAlpha(0f);
+        login.animate().alpha(1f).setDuration(1500);
+
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 APIMethode api;
-                String url = "http://192.168.1.42:8080/api/login/username=\"" + username.getText() + "\"&password=\"" + password.getText() + "\"";
+                String url = "http://185.98.138.221:8080/api/login/username=\"" + username.getText() + "\"&password=\"" + password.getText() + "\"";
                 api = new APIMethode(url);
                 try {
                     if(api.sendGet()) {
