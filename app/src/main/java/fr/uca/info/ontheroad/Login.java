@@ -33,6 +33,18 @@ public class Login extends AppCompatActivity {
         login.setAlpha(0f);
         login.animate().alpha(1f).setDuration(1500);
 
+        Button btnBack = (Button) findViewById(R.id.back);
+        btnBack.setVisibility(View.VISIBLE);
+        btnBack.setAlpha(0f);
+        btnBack.animate().alpha(1f).setDuration(1500);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Welcome.class);
+                startActivity(intent);
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

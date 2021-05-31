@@ -1,6 +1,7 @@
 package fr.uca.info.ontheroad;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -38,6 +39,14 @@ public class UserProfil extends AppCompatActivity {
 
         btnAskExam.setBackgroundColor(Color.parseColor("#a02c5d"));
         btnBack.setBackgroundColor(Color.parseColor("#ffc047"));
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserProfil.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         try{
             readJSON(getApplicationContext());
